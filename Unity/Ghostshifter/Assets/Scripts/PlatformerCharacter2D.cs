@@ -11,8 +11,9 @@ namespace UnityStandardAssets._2D
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
-        [SerializeField] private float m_BoostPower = 3;
-        [SerializeField] private bool m_Boost = false;
+        private float m_BoostPower = 1f; //Current boost level
+        [SerializeField] private float m_BoostWeight = 1f; //Maximum boost level
+        [SerializeField] private float m_timer = 0; //Boost time remaining / cooldown timer
 
         private int form = 0;
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
@@ -80,7 +81,7 @@ namespace UnityStandardAssets._2D
 				m_Anim[form].SetFloat("Speed", move*m_MaxSpeed + m_BaseSpeed);
 
                 // Move the character
-				m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed + m_BaseSpeed, m_Rigidbody2D.velocity.y);
+				m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed + m_BaseSpeed * m_BoostPower, m_Rigidbody2D.velocity.y);
 
                 // If the input is moving the player right and the player is facing left...///Our character doesn't change facing -Adam
                 /*if (move > 0 && !m_FacingRight)
