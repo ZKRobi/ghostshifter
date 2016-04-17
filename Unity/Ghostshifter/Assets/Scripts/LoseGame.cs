@@ -32,7 +32,12 @@ public class LoseGame : MonoBehaviour
         if (gameLost)
         {
             loseUI.SetActive(true);
-            // TODO: turn off character scripts
+
+            GetComponent<Shapeshifter>().enabled = false;
+            GetComponent<Platformer2DUserControl>().enabled = false;
+            GetComponent<PlatformerCharacter2D>().enabled = false;
+            Destroy(GetComponent<Rigidbody2D>());
+
             // TODO: fade screen out
             if (Time.time - backToMenuAfterSeconds > deathTime)
             {
