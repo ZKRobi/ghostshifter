@@ -12,7 +12,8 @@ using UnityStandardAssets.CrossPlatformInput;
         private Transform m_faceplantCheck;
 
         // Use this for initialization
-        private void Start () {
+    private void Start()
+    {
 			formControl = gameObject.GetComponent<PlatformerCharacter2D>();
             //form2Control = GetComponent<PlatformerCharacterForm1Base>();
             m_Anim = GetComponent<Animator>();
@@ -22,8 +23,14 @@ using UnityStandardAssets.CrossPlatformInput;
             m_faceplantCheck = transform.Find("FaceplantCheck");
         }
 
+    public bool CanPass()
+    {
+        return form == 1;
+    }
+
 		// Update is called once per frame
-		private void Update () {//Change form
+    private void Update()
+    {//Change form
             int newform = form; //If this becomes different from form, change form.
             if (CrossPlatformInputManager.GetButtonDown("Form1") && form != 0)
             {
@@ -45,7 +52,8 @@ using UnityStandardAssets.CrossPlatformInput;
                 formControl.MaxSpeed = 8;
                 if (form == 1) { m_faceplantCheck.Translate(0f, 0.3f, 0f); }
             }
-            if (newform == form){
+        if (newform == form)
+        {
                 return;
             }
             body[form].gameObject.SetActive(false); //Deactivate old form
