@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: d210c0aa734b50b44b8f7da3d6bbb032
+timeCreated: 1460899693
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: snakeanim_0
+    21300002: snakeanim_1
+    21300004: snakeanim_2
+    21300006: snakeanim_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: snakeanim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1627
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.5, y: 76}
+        - {x: -255.5, y: 68}
+        - {x: -255.5, y: 19}
+        - {x: -249.5, y: 12}
+        - {x: -236.5, y: 0}
+        - {x: 96.5, y: 0}
+        - {x: 214.5, y: 4}
+        - {x: 214.5, y: 53}
+        - {x: 189.5, y: 76}
+      - - {x: 239.5, y: 67}
+        - {x: 239.5, y: 26}
+        - {x: 251.5, y: 18}
+        - {x: 255.5, y: 18}
+        - {x: 255.5, y: 67}
+    - name: snakeanim_1
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 0
+        width: 1627
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -56.04129, y: 76}
+        - {x: -255.04129, y: 69}
+        - {x: -255.04129, y: 12}
+        - {x: -250.04129, y: 0}
+        - {x: 172.95871, y: 0}
+        - {x: 175.95871, y: 5}
+        - {x: 175.95871, y: 42}
+        - {x: 147.95871, y: 76}
+      - - {x: 245.95871, y: 65}
+        - {x: 237.95871, y: 62}
+        - {x: 235.95871, y: 55}
+        - {x: 235.95871, y: 31}
+        - {x: 251.95871, y: 16}
+        - {x: 256.9587, y: 16}
+        - {x: 256.9587, y: 65}
+    - name: snakeanim_2
+      rect:
+        serializedVersion: 2
+        x: 3254
+        y: 0
+        width: 1627
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23.91742, y: 76}
+        - {x: -122.08258, y: 64}
+        - {x: -255.08258, y: 66}
+        - {x: -255.08258, y: 15}
+        - {x: -250.08258, y: 10}
+        - {x: -234.08258, y: 0}
+        - {x: 233.91742, y: 0}
+        - {x: 233.91742, y: 35}
+        - {x: 189.91742, y: 76}
+    - name: snakeanim_3
+      rect:
+        serializedVersion: 2
+        x: 4881
+        y: 0
+        width: 1627
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -190.1239, y: 26}
+        - {x: -197.1239, y: 15}
+        - {x: -197.1239, y: 0}
+        - {x: 256.8761, y: 0}
+        - {x: 256.8761, y: 66}
+        - {x: 114.8761, y: 66}
+        - {x: -82.1239, y: 45}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
