@@ -33,7 +33,7 @@ public class LoseGame : MonoBehaviour
         {
             loseUI.SetActive(true);
 
-            GetComponent<Shapeshifter>().enabled = false;
+            GetComponent<Shapeshifter>().die();
             GetComponent<Platformer2DUserControl>().enabled = false;
             GetComponent<PlatformerCharacter2D>().enabled = false;
             Destroy(GetComponent<Rigidbody2D>());

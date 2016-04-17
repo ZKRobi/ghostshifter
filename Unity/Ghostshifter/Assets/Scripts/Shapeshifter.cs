@@ -45,14 +45,14 @@ public class Shapeshifter : MonoBehaviour
         else if (CrossPlatformInputManager.GetButtonDown("Form2") && form != 1)
         {
             newform = 1;
-            formControl.MaxSpeed = 6;
+            formControl.MaxSpeed = 12;
             formControl.JumpForce = 350;
             if (form != 1) { m_faceplantCheck.Translate(0f, -0.35f, 0f); }
         }
         else if (CrossPlatformInputManager.GetButtonDown("Form3") && form != 2)
         {
             newform = 2;
-            formControl.MaxSpeed = 8;
+            formControl.MaxSpeed = 5;
             if (form == 1) { m_faceplantCheck.Translate(0f, 0.35f, 0f); }
         }
         if (newform == form)
@@ -87,5 +87,20 @@ public class Shapeshifter : MonoBehaviour
         {
             return form;
         }
+    }
+
+    public void die()
+    {
+        m_Particles.Play();
+        Invoke("stopEmitter", 0.4f);
+        foreach (Transform b in body)
+        {
+            b.gameObject.SetActive(false);
+        }
+    }
+    private void stopEmitter()
+    {
+        m_Particles.Stop();
+        enabled = false;
     }
 }
