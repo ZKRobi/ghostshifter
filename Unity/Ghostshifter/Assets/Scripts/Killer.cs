@@ -20,7 +20,7 @@ public class Killer : MonoBehaviour
         Debug.Log(other.gameObject.layer);
         if (other.gameObject.layer == playerFormLayer)
         {
-            //playerLoseScript.GetComponent<LoseGame>().SetGameLost(true);
+            playerLoseScript.GetComponent<LoseGame>().SetGameLost(true);
         }
     }
 }

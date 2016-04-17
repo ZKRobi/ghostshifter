@@ -31,7 +31,7 @@ public class LevelGenerator : MonoBehaviour
             lastGenerated += levelItemWidth;
 
             GameObject newItem = Instantiate(levelItems[nextItem]);
-            newItem.transform.position = new Vector3(lastGenerated + (levelItemWidth * 2), 0, 0);
+            newItem.transform.Translate(lastGenerated + (levelItemWidth * 2), 0, 0);
         }
     }
 }
