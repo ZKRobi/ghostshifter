@@ -10,6 +10,7 @@ public class Shapeshifter : MonoBehaviour
     private Animator m_Anim;            // Reference to the player's animator component. Totally not copy/pasted
     private Transform[] body = new Transform[3];
     private Transform m_faceplantCheck;
+    private ParticleSystem m_Particles;
 
     // Use this for initialization
     private void Start()
@@ -20,6 +21,7 @@ public class Shapeshifter : MonoBehaviour
         body[0] = transform.Find("Frog");
         body[1] = transform.Find("Tatu");
         body[2] = transform.Find("Snake");
+        m_Particles = GetComponent<ParticleSystem>();
 
         m_faceplantCheck = GameObject.Find("FaceplantCheck").transform;
     }
@@ -57,6 +59,7 @@ public class Shapeshifter : MonoBehaviour
         {
             return;
         }
+        m_Particles.Play();
         body[form].gameObject.SetActive(false); //Deactivate old form
         foreach (Collider c in body[form].gameObject.GetComponents<Collider>())
         {
