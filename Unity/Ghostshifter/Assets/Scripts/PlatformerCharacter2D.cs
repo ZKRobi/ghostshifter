@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets._2D
 {
@@ -11,9 +12,8 @@ namespace UnityStandardAssets._2D
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
-        private float m_BoostPower = 1f; //Current boost level
-        [SerializeField] private float m_BoostWeight = 1f; //Maximum boost level
-        [SerializeField] private float m_timer = 0; //Boost time remaining / cooldown timer
+        private float m_BoostPower = 1f; //Current base speed multiplier
+        [SerializeField] private float m_BoostWeight = 0.1f; //Rate of increase, in speed per second
 
         private int form = 0;
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
@@ -50,7 +50,15 @@ namespace UnityStandardAssets._2D
                     m_Grounded = true;
             }
             m_Anim[form].SetBool("Ground", m_Grounded);
-
+            m_BoostPower += (Time.deltaTime * m_BoostWeight);
+            /*if (m_BoostTimer > 10)
+            {
+                m_BoostPower = 1;
+            }
+            /*if (CrossPlatformInputManager.GetButtonDown(m_BoostTimer))
+            {
+                m_BoostPower = m_BoostWeight
+            }*/
             // Set the vertical animation
             m_Anim[form].SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
