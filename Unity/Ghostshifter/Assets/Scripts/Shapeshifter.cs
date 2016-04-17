@@ -14,14 +14,13 @@ using UnityStandardAssets.CrossPlatformInput;
         // Use this for initialization
     private void Start()
     {
-			formControl = gameObject.GetComponent<PlatformerCharacter2D>();
-            //form2Control = GetComponent<PlatformerCharacterForm1Base>();
-            m_Anim = GetComponent<Animator>();
-            body[0] = transform.Find("Frogger");
-            body[1] = transform.Find("Snake");
-            body[2] = transform.Find("Ghost");
-            m_faceplantCheck = transform.Find("FaceplantCheck");
-        }
+        formControl = gameObject.GetComponent<PlatformerCharacter2D>();
+        //form2Control = GetComponent<PlatformerCharacterForm1Base>();
+        m_Anim = GetComponent<Animator>();
+        body[0] = transform.Find("Frog");
+        body[1] = transform.Find("Tatu");
+        body[2] = transform.Find("Snake");
+    }
 
     public bool CanPass()
     {
