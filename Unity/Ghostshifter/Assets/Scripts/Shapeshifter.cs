@@ -9,6 +9,7 @@ using UnityStandardAssets.CrossPlatformInput;
 		private PlatformerCharacter2D formControl;
         private Animator m_Anim;            // Reference to the player's animator component. Totally not copy/pasted
         private Transform[] body = new Transform[3];
+        private Transform m_faceplantCheck;
 
         // Use this for initialization
         private void Start () {
@@ -16,8 +17,9 @@ using UnityStandardAssets.CrossPlatformInput;
             //form2Control = GetComponent<PlatformerCharacterForm1Base>();
             m_Anim = GetComponent<Animator>();
             body[0] = transform.Find("Frogger");
-            body[1] = transform.Find("Ghost");
-            body[2] = transform.Find("Snake");
+            body[1] = transform.Find("Snake");
+            body[2] = transform.Find("Ghost");
+            m_faceplantCheck = transform.Find("FaceplantCheck");
         }
 
 		// Update is called once per frame
@@ -28,17 +30,20 @@ using UnityStandardAssets.CrossPlatformInput;
                 newform = 0;
                 formControl.MaxSpeed = 4;
                 formControl.JumpForce = 850;
+                if (form == 1) { m_faceplantCheck.Translate(0f, 0.3f, 0f); }
             }
             else if (CrossPlatformInputManager.GetButtonDown("Form2") && form != 1)
             {
                 newform = 1;
-                formControl.MaxSpeed = 8;
-                formControl.JumpForce = 300;
+                formControl.MaxSpeed = 6;
+                formControl.JumpForce = 400;
+                if (form != 1) { m_faceplantCheck.Translate(0f, -0.3f, 0f); }
             }
             else if (CrossPlatformInputManager.GetButtonDown("Form3") && form != 2)
             {
                 newform = 2;
                 formControl.MaxSpeed = 8;
+                if (form == 1) { m_faceplantCheck.Translate(0f, 0.3f, 0f); }
             }
             if (newform == form){
                 return;

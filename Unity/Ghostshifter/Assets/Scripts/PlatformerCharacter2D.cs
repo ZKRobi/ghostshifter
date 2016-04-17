@@ -17,7 +17,7 @@ using UnityStandardAssets.CrossPlatformInput;
         private int form = 0;
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .3f; // Radius of the overlap circle to determine if grounded
-        const float k_FaceplantRadius = 0.4f;
+        const float k_FaceplantRadius = 0.1f;
         private bool m_Grounded;            // Whether or not the player is grounded.
         private Transform m_CeilingCheck;   // A position marking where to check for ceilings
         private Transform m_FaceplantCheck;
