@@ -22,7 +22,7 @@ public class LevelGenerator : MonoBehaviour
     {
         if (player.position.x - lastGenerated > levelItemWidth)
         {
-            var nextItem = (int)Mathf.Floor(levelItems.Length * Random.value);
+            var nextItem = Mathf.FloorToInt(levelItems.Length * Random.value);
             if (nextItem >= levelItems.Length)
             {
                 nextItem = levelItems.Length - 1;
