@@ -30,7 +30,7 @@ namespace UnityStandardAssets._2D
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
-            m_Anim[0] = transform.Find("Robot").GetComponent<Animator>();
+            m_Anim[0] = transform.Find("Frogger").GetComponent<Animator>();
             m_Anim[1] = transform.Find("Robot").GetComponent<Animator>();
             m_Anim[2] = transform.Find("Robot").GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();

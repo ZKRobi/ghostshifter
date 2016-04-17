@@ -17,7 +17,7 @@ namespace UnityStandardAssets._2D
 			formControl = gameObject.GetComponent<PlatformerCharacter2D>();
             //form2Control = GetComponent<PlatformerCharacterForm1Base>();
             m_Anim = GetComponent<Animator>();
-            body[0] = transform.Find("Robot");
+            body[0] = transform.Find("Frogger");
             body[1] = transform.Find("Ghost");
             body[2] = transform.Find("Ghost");
         }
