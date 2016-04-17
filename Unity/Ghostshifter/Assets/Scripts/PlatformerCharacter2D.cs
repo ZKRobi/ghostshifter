@@ -12,17 +12,21 @@ namespace UnityStandardAssets._2D
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
+        [SerializeField] private LayerMask m_WhatIsObstacle;
         private float m_BoostPower = 1f; //Current base speed multiplier
         [SerializeField] private float m_BoostWeight = 0.1f; //Rate of increase, in speed per second
 
         private int form = 0;
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
-        const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+        const float k_GroundedRadius = .3f; // Radius of the overlap circle to determine if grounded
+        const float k_FaceplantRadius = 0.4f;
         private bool m_Grounded;            // Whether or not the player is grounded.
         private Transform m_CeilingCheck;   // A position marking where to check for ceilings
-        const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
+        private Transform m_FaceplantCheck;
+        const float k_CeilingRadius = .1f; // Radius of the overlap circle to determine if the player can stand up
         private Animator[] m_Anim = new Animator[3];            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
+        private Shapeshifter m_Shapeshifter;
         //private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
         private void Awake()
@@ -30,10 +34,12 @@ namespace UnityStandardAssets._2D
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
+            m_FaceplantCheck = transform.Find("FaceplantCheck");
             m_Anim[0] = transform.Find("Frogger").GetComponent<Animator>();
             m_Anim[1] = transform.Find("Robot").GetComponent<Animator>();
             m_Anim[2] = transform.Find("Robot").GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            m_Shapeshifter = GetComponent<Shapeshifter>();
         }
 
 
@@ -51,6 +57,21 @@ namespace UnityStandardAssets._2D
             }
             m_Anim[form].SetBool("Ground", m_Grounded);
             m_BoostPower += (Time.deltaTime * m_BoostWeight);
+            ////++++
+            colliders = Physics2D.OverlapCircleAll(m_FaceplantCheck.position, k_FaceplantRadius, m_WhatIsObstacle);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject != gameObject && m_Rigidbody2D.gravityScale != 0) {
+                    m_Rigidbody2D.gravityScale = 0;
+                    Invoke("restoreCollision", 0.3f);
+                    m_BoostPower *= 0.95f;
+                    if (m_BoostPower < 0.5f)
+                    {
+                        m_BoostPower = 0.5f;
+                    }
+                    m_Shapeshifter.CollisionEnabled(false);
+                }
+            }
             /*if (m_BoostTimer > 10)
             {
                 m_BoostPower = 1;
@@ -63,9 +84,19 @@ namespace UnityStandardAssets._2D
             m_Anim[form].SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
 
+        private void restoreCollision()
+        {
+            m_Rigidbody2D.gravityScale = 3;
+            m_Shapeshifter.CollisionEnabled(true);
+        }
 
         public void Move(float move, bool crouch, bool jump)
         {
+            if (m_Rigidbody2D.gravityScale == 0)
+            {
+                m_Rigidbody2D.velocity = new Vector2(7f*m_BoostPower, 0f);
+                return;
+            }
             // If crouching, check to see if the character can stand up
             /*if (!crouch && m_Anim.GetBool("Crouch"))
             {
@@ -89,7 +120,7 @@ namespace UnityStandardAssets._2D
 				m_Anim[form].SetFloat("Speed", move*m_MaxSpeed + m_BaseSpeed);
 
                 // Move the character
-				m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed + m_BaseSpeed * m_BoostPower, m_Rigidbody2D.velocity.y);
+				m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed * m_BoostPower + m_BaseSpeed * m_BoostPower, m_Rigidbody2D.velocity.y);
 
                 // If the input is moving the player right and the player is facing left...///Our character doesn't change facing -Adam
                 /*if (move > 0 && !m_FacingRight)

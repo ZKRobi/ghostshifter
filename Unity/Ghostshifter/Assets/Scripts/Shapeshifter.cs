@@ -57,6 +57,14 @@ namespace UnityStandardAssets._2D
                 c.enabled = true;
             }
         }
+        public void CollisionEnabled(bool willCollide)
+        {
+            foreach (var c in body[form].GetComponents<Collider2D>())
+            {
+                c.enabled = willCollide;
+            }
+            body[form].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, willCollide ? 1f:0.5f);
+        }
 
         public int Form
         {
