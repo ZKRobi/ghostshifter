@@ -13,7 +13,11 @@ public class LoseGame : MonoBehaviour
     public void SetGameLost(bool really)
     {
         gameLost = gameLost || really;
-        deathTime = Time.time;
+        if (really)
+        {
+            Debug.Log("Game Lost set");
+            deathTime = Time.time;
+        }
     }
 
     // Use this for initialization
