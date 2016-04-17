@@ -5,8 +5,9 @@ namespace UnityStandardAssets._2D
 {
     public class PlatformerCharacter2D : MonoBehaviour
     {
-        [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
+		[SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
+		[SerializeField] private float m_BaseSpeed = 10f;					// Character is running this quickly alll the time
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -18,14 +19,14 @@ namespace UnityStandardAssets._2D
         const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
-        private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+        //private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
         private void Awake()
         {
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
-            m_Anim = GetComponent<Animator>();
+            m_Anim = transform.Find("Robot").GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
@@ -57,7 +58,7 @@ namespace UnityStandardAssets._2D
                 // If the character has a ceiling preventing them from standing up, keep them crouching
                 if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
                 {
-                    crouch = true;
+                    crouch = true; //We don't really need this
                 }
             }
 
@@ -70,14 +71,14 @@ namespace UnityStandardAssets._2D
                 // Reduce the speed if crouching by the crouchSpeed multiplier
                 move = (crouch ? move*m_CrouchSpeed : move);
 
-                // The Speed animator parameter is set to the absolute value of the horizontal input.
-                m_Anim.SetFloat("Speed", Mathf.Abs(move));
+                // The Speed animator parameter is set to the forward velocity of the player character.
+				m_Anim.SetFloat("Speed", move*m_MaxSpeed + m_BaseSpeed);
 
                 // Move the character
-                m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
+				m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed + m_BaseSpeed, m_Rigidbody2D.velocity.y);
 
-                // If the input is moving the player right and the player is facing left...
-                if (move > 0 && !m_FacingRight)
+                // If the input is moving the player right and the player is facing left...///Our character doesn't change facing -Adam
+                /*if (move > 0 && !m_FacingRight)
                 {
                     // ... flip the player.
                     Flip();
@@ -87,7 +88,7 @@ namespace UnityStandardAssets._2D
                 {
                     // ... flip the player.
                     Flip();
-                }
+                }*/
             }
             // If the player should jump...
             if (m_Grounded && jump && m_Anim.GetBool("Ground"))
@@ -99,8 +100,16 @@ namespace UnityStandardAssets._2D
             }
         }
 
+		public float MaxSpeed {
+			get {
+				return m_MaxSpeed;
+			}
+			set {
+				m_MaxSpeed = value;
+			}
+		}
 
-        private void Flip()
+        /*private void Flip()
         {
             // Switch the way the player is labelled as facing.
             m_FacingRight = !m_FacingRight;
@@ -109,6 +118,6 @@ namespace UnityStandardAssets._2D
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
-        }
+        }*/
     }
 }
