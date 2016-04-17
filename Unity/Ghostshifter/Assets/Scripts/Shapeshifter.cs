@@ -2,8 +2,6 @@
 using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets._2D
-{
 	public class Shapeshifter : MonoBehaviour 
 	{
 
@@ -74,4 +72,3 @@ namespace UnityStandardAssets._2D
             }
         }
 	}
-}
