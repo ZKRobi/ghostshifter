@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class Menace : MonoBehaviour
 {
-
     public float speed;
+    public float maxDistance;
+    public GameObject player;
 
     // Use this for initialization
     void Start()
@@ -16,14 +17,17 @@ public class Menace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (player.transform.position.x > transform.position.x + maxDistance)
+        {
+            transform.position = new Vector3(player.transform.position.x - maxDistance, transform.position.y, transform.position.z);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("MenuScene");
+            player.GetComponent<LoseGame>().SetGameLost(true);
         }
     }
 }
