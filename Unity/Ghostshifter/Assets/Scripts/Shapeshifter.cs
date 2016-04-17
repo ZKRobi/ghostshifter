@@ -37,20 +37,20 @@ using UnityStandardAssets.CrossPlatformInput;
                 newform = 0;
                 formControl.MaxSpeed = 4;
                 formControl.JumpForce = 850;
-                if (form == 1) { m_faceplantCheck.Translate(0f, 0.3f, 0f); }
+                if (form == 1) { m_faceplantCheck.Translate(0f, 0.35f, 0f); }
             }
             else if (CrossPlatformInputManager.GetButtonDown("Form2") && form != 1)
             {
                 newform = 1;
                 formControl.MaxSpeed = 6;
-                formControl.JumpForce = 400;
-                if (form != 1) { m_faceplantCheck.Translate(0f, -0.3f, 0f); }
+                formControl.JumpForce = 350;
+                if (form != 1) { m_faceplantCheck.Translate(0f, -0.35f, 0f); }
             }
             else if (CrossPlatformInputManager.GetButtonDown("Form3") && form != 2)
             {
                 newform = 2;
                 formControl.MaxSpeed = 8;
-                if (form == 1) { m_faceplantCheck.Translate(0f, 0.3f, 0f); }
+                if (form == 1) { m_faceplantCheck.Translate(0f, 0.35f, 0f); }
             }
         if (newform == form)
         {
