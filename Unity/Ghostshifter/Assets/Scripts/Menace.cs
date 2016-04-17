@@ -22,12 +22,4 @@ public class Menace : MonoBehaviour
             transform.position = new Vector3(player.transform.position.x - maxDistance, transform.position.y, transform.position.z);
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            player.GetComponent<LoseGame>().SetGameLost(true);
-        }
-    }
 }
