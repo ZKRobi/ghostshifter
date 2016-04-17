@@ -23,7 +23,7 @@ public class Menace : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("MenuScene");
         }
     }
 }
