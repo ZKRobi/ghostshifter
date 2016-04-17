@@ -27,15 +27,15 @@ using UnityStandardAssets.CrossPlatformInput;
         private Shapeshifter m_Shapeshifter;
         //private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
-        private void Awake()
+        private void Start()
         {
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_FaceplantCheck = transform.Find("FaceplantCheck");
-            m_Anim[0] = transform.Find("Frogger").GetComponent<Animator>();
-            m_Anim[1] = transform.Find("Robot").GetComponent<Animator>();
-            m_Anim[2] = transform.Find("Robot").GetComponent<Animator>();
+            m_Anim[0] = transform.Find("Frog").GetComponent<Animator>();
+            m_Anim[1] = transform.Find("Tatu").GetComponent<Animator>();
+            m_Anim[2] = transform.Find("Snake").GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             m_Shapeshifter = GetComponent<Shapeshifter>();
         }

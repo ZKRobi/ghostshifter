@@ -2,16 +2,16 @@
 using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 
-	public class Shapeshifter : MonoBehaviour 
-	{
+public class Shapeshifter : MonoBehaviour
+{
 
-		private int form = 0;
-		private PlatformerCharacter2D formControl;
-        private Animator m_Anim;            // Reference to the player's animator component. Totally not copy/pasted
-        private Transform[] body = new Transform[3];
-        private Transform m_faceplantCheck;
+    private int form = 0;
+    private PlatformerCharacter2D formControl;
+    private Animator m_Anim;            // Reference to the player's animator component. Totally not copy/pasted
+    private Transform[] body = new Transform[3];
+    private Transform m_faceplantCheck;
 
-        // Use this for initialization
+    // Use this for initialization
     private void Start()
     {
         formControl = gameObject.GetComponent<PlatformerCharacter2D>();
@@ -20,6 +20,8 @@ using UnityStandardAssets.CrossPlatformInput;
         body[0] = transform.Find("Frog");
         body[1] = transform.Find("Tatu");
         body[2] = transform.Find("Snake");
+
+        m_faceplantCheck = GameObject.Find("FaceplantCheck").transform;
     }
 
     public bool CanPass()
@@ -27,60 +29,60 @@ using UnityStandardAssets.CrossPlatformInput;
         return form == 1;
     }
 
-		// Update is called once per frame
+    // Update is called once per frame
     private void Update()
     {//Change form
-            int newform = form; //If this becomes different from form, change form.
-            if (CrossPlatformInputManager.GetButtonDown("Form1") && form != 0)
-            {
-                newform = 0;
-                formControl.MaxSpeed = 4;
-                formControl.JumpForce = 850;
-                if (form == 1) { m_faceplantCheck.Translate(0f, 0.35f, 0f); }
-            }
-            else if (CrossPlatformInputManager.GetButtonDown("Form2") && form != 1)
-            {
-                newform = 1;
-                formControl.MaxSpeed = 6;
-                formControl.JumpForce = 350;
-                if (form != 1) { m_faceplantCheck.Translate(0f, -0.35f, 0f); }
-            }
-            else if (CrossPlatformInputManager.GetButtonDown("Form3") && form != 2)
-            {
-                newform = 2;
-                formControl.MaxSpeed = 8;
-                if (form == 1) { m_faceplantCheck.Translate(0f, 0.35f, 0f); }
-            }
+        int newform = form; //If this becomes different from form, change form.
+        if (CrossPlatformInputManager.GetButtonDown("Form1") && form != 0)
+        {
+            newform = 0;
+            formControl.MaxSpeed = 4;
+            formControl.JumpForce = 850;
+            if (form == 1) { m_faceplantCheck.Translate(0f, 0.35f, 0f); }
+        }
+        else if (CrossPlatformInputManager.GetButtonDown("Form2") && form != 1)
+        {
+            newform = 1;
+            formControl.MaxSpeed = 6;
+            formControl.JumpForce = 350;
+            if (form != 1) { m_faceplantCheck.Translate(0f, -0.35f, 0f); }
+        }
+        else if (CrossPlatformInputManager.GetButtonDown("Form3") && form != 2)
+        {
+            newform = 2;
+            formControl.MaxSpeed = 8;
+            if (form == 1) { m_faceplantCheck.Translate(0f, 0.35f, 0f); }
+        }
         if (newform == form)
         {
-                return;
-            }
-            body[form].gameObject.SetActive(false); //Deactivate old form
-            foreach (Collider c in body[form].gameObject.GetComponents<Collider>())
-            {
-                c.enabled = false;
-            }
-            form = newform;
-            body[form].gameObject.SetActive(true); //Activate new form
-            foreach (Collider c in body[form].gameObject.GetComponents<Collider>())
-            {
-                c.enabled = true;
-            }
+            return;
         }
-        public void CollisionEnabled(bool willCollide)
+        body[form].gameObject.SetActive(false); //Deactivate old form
+        foreach (Collider c in body[form].gameObject.GetComponents<Collider>())
         {
-            foreach (var c in body[form].GetComponents<Collider2D>())
-            {
-                c.enabled = willCollide;
-            }
-            body[form].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, willCollide ? 1f:0.5f);
+            c.enabled = false;
         }
+        form = newform;
+        body[form].gameObject.SetActive(true); //Activate new form
+        foreach (Collider c in body[form].gameObject.GetComponents<Collider>())
+        {
+            c.enabled = true;
+        }
+    }
+    public void CollisionEnabled(bool willCollide)
+    {
+        foreach (var c in body[form].GetComponents<Collider2D>())
+        {
+            c.enabled = willCollide;
+        }
+        body[form].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, willCollide ? 1f : 0.5f);
+    }
 
-        public int Form
+    public int Form
+    {
+        get
         {
-            get
-            {
-                return form;
-            }
+            return form;
         }
-	}
+    }
+}
