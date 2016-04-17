@@ -17,7 +17,7 @@ using UnityStandardAssets.CrossPlatformInput;
             m_Anim = GetComponent<Animator>();
             body[0] = transform.Find("Frogger");
             body[1] = transform.Find("Ghost");
-            body[2] = transform.Find("Ghost");
+            body[2] = transform.Find("Snake");
         }
 
 		// Update is called once per frame
