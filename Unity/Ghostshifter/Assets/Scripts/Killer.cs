@@ -17,7 +17,6 @@ public class Killer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.layer);
         if (other.gameObject.layer == playerFormLayer)
         {
             playerLoseScript.GetComponent<LoseGame>().SetGameLost(true);
