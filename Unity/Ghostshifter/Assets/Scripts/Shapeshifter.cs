@@ -21,7 +21,7 @@ public class Shapeshifter : MonoBehaviour
         body[0] = transform.Find("Frog");
         body[1] = transform.Find("Tatu");
         body[2] = transform.Find("Snake");
-        m_Particles = GetComponent<ParticleSystem>();
+        m_Particles = GetComponentInChildren<ParticleSystem>();
 
         m_faceplantCheck = GameObject.Find("FaceplantCheck").transform;
     }
@@ -89,15 +89,6 @@ public class Shapeshifter : MonoBehaviour
         }
     }
 
-    public void die()
-    {
-        m_Particles.Play();
-        Invoke("stopEmitter", 0.4f);
-        foreach (Transform b in body)
-        {
-            b.gameObject.SetActive(false);
-        }
-    }
     private void stopEmitter()
     {
         m_Particles.Stop();
