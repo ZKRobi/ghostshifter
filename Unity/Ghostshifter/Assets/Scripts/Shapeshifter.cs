@@ -7,9 +7,8 @@ public class Shapeshifter : MonoBehaviour
 
     private int form = 0;
     private PlatformerCharacter2D formControl;
-    private Animator m_Anim;            // Reference to the player's animator component. Totally not copy/pasted
     private Transform[] body = new Transform[3];
-    private Transform m_faceplantCheck;
+    private Transform faceCheck;
     private ParticleSystem m_Particles;
 
     // Use this for initialization
@@ -17,13 +16,12 @@ public class Shapeshifter : MonoBehaviour
     {
         formControl = gameObject.GetComponent<PlatformerCharacter2D>();
         //form2Control = GetComponent<PlatformerCharacterForm1Base>();
-        m_Anim = GetComponent<Animator>();
         body[0] = transform.Find("Frog");
         body[1] = transform.Find("Tatu");
         body[2] = transform.Find("Snake");
         m_Particles = GetComponentInChildren<ParticleSystem>();
 
-        m_faceplantCheck = GameObject.Find("FaceplantCheck").transform;
+        faceCheck = GameObject.Find("FaceCheck").transform;
     }
 
     public bool CanPass()
@@ -40,20 +38,20 @@ public class Shapeshifter : MonoBehaviour
             newform = 0;
             formControl.MaxSpeed = 4;
             formControl.JumpForce = 850;
-            if (form == 1) { m_faceplantCheck.Translate(0f, 0.35f, 0f); }
+            if (form == 1) { faceCheck.Translate(0f, 0.35f, 0f); }
         }
         else if (CrossPlatformInputManager.GetButtonDown("Form2") && form != 1)
         {
             newform = 1;
             formControl.MaxSpeed = 12;
             formControl.JumpForce = 350;
-            if (form != 1) { m_faceplantCheck.Translate(0f, -0.35f, 0f); }
+            if (form != 1) { faceCheck.Translate(0f, -0.35f, 0f); }
         }
         else if (CrossPlatformInputManager.GetButtonDown("Form3") && form != 2)
         {
             newform = 2;
             formControl.MaxSpeed = 5;
-            if (form == 1) { m_faceplantCheck.Translate(0f, 0.35f, 0f); }
+            if (form == 1) { faceCheck.Translate(0f, 0.35f, 0f); }
         }
         if (newform == form)
         {

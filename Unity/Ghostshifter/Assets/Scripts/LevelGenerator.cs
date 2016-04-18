@@ -8,13 +8,14 @@ public class LevelGenerator : MonoBehaviour
 
     public float levelItemWidth;
 
-    public Transform player;
+    private Transform player;
 
     private float lastGenerated = 0;
 
     // Use this for initialization
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
