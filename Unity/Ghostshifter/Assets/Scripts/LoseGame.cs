@@ -41,13 +41,8 @@ public class LoseGame : MonoBehaviour
             }
             GetComponent<Platformer2DUserControl>().enabled = false;
             GetComponent<PlatformerCharacter2D>().enabled = false;
+            
             Destroy(GetComponent<Rigidbody2D>());
-
-            // TODO: fade screen out
-            if (Time.time - backToMenuAfterSeconds > deathTime)
-            {
-                SceneManager.LoadScene("MenuScene");
-            }
         }
     }
 }

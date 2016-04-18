@@ -2,15 +2,15 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class MenuHandler : MonoBehaviour
+public class LoseUI : MonoBehaviour
 {
-    public void OnStartClick()
+    public void OnRestartClick()
     {
         SceneManager.LoadScene("GameScene");
     }
 
-    public void OnExitClick()
+    public void OnQuitClick()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MenuScene");
     }
 }
