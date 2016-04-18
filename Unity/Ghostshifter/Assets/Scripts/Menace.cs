@@ -6,12 +6,13 @@ public class Menace : MonoBehaviour
 {
     public float speed;
     public float maxDistance;
-    public GameObject player;
+    private GameObject player;
 
     // Use this for initialization
     void Start()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
