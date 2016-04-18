@@ -115,7 +115,7 @@ using UnityStandardAssets.CrossPlatformInput;
                 move = (crouch ? move*m_CrouchSpeed : move);
 
                 // The Speed animator parameter is set to the forward velocity of the player character.
-				m_Anim[form].SetFloat("Speed", move*m_MaxSpeed + m_BaseSpeed);
+    
 
                 // Move the character
 				m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed * m_BoostPower + m_BaseSpeed * m_BoostPower, m_Rigidbody2D.velocity.y);

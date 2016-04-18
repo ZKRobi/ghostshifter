@@ -9,4 +9,8 @@ public class MenuHandler : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void OnExitClick()
+    {
+        Application.Quit();
+    }
 }
