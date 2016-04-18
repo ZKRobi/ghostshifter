@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bbed6cdf5a7baa342a03e8e481fd0542
-timeCreated: 1460966120
+timeCreated: 1460968278
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -66,25 +66,22 @@ TextureImporter:
         width: 172
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -55, y: 33}
-        - {x: -86, y: 26}
-        - {x: -86, y: -19}
-        - {x: -82, y: -22}
-        - {x: -65, y: -24}
-        - {x: -31, y: -32}
-        - {x: 40, y: -32}
-        - {x: 80, y: -5}
-        - {x: 80, y: 27}
-        - {x: 77, y: 33}
-      - - {x: 71, y: -9}
-        - {x: 68, y: -11}
-        - {x: 68, y: -25}
-        - {x: 69, y: -28}
-        - {x: 80, y: -28}
-        - {x: 80, y: -9}
+      - - {x: -78, y: -32}
+        - {x: 50, y: -32}
+        - {x: 74, y: -24}
+        - {x: 74, y: 33}
+        - {x: -48, y: 33}
+        - {x: -86, y: 23}
+        - {x: -86, y: -27}
+      - - {x: 65, y: -9}
+        - {x: 62, y: -11}
+        - {x: 62, y: -25}
+        - {x: 63, y: -28}
+        - {x: 74, y: -28}
+        - {x: 74, y: -9}
     - name: tatu_sprite_1
       rect:
         serializedVersion: 2
@@ -93,22 +90,23 @@ TextureImporter:
         width: 172
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -51, y: 30}
-        - {x: -84, y: 0}
-        - {x: -84, y: -30}
-        - {x: 62, y: -30}
-        - {x: 86, y: -25}
+      - - {x: -54, y: 28}
+        - {x: -84, y: 4}
+        - {x: -84, y: -32}
+        - {x: 41, y: -32}
+        - {x: 86, y: -22}
         - {x: 86, y: 28}
-        - {x: 58, y: 30}
-      - - {x: -84, y: 21}
-        - {x: -84, y: 2}
-        - {x: -83, y: 0}
-        - {x: -76, y: 0}
-        - {x: -76, y: 21}
-        - {x: -81, y: 22}
+      - - {x: -82, y: 20}
+        - {x: -84, y: 19}
+        - {x: -84, y: 0}
+        - {x: -82, y: -2}
+        - {x: -79, y: -2}
+        - {x: -76, y: 3}
+        - {x: -76, y: 15}
+        - {x: -80, y: 20}
     - name: tatu_sprite_2
       rect:
         serializedVersion: 2
@@ -117,18 +115,20 @@ TextureImporter:
         width: 172
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -39, y: 32}
-        - {x: -86, y: 22}
-        - {x: -86, y: -7}
-        - {x: -68, y: -33}
-        - {x: 19, y: -33}
-        - {x: 68, y: -16}
-        - {x: 68, y: 24}
-        - {x: 67, y: 25}
-        - {x: 45, y: 32}
+      - - {x: 59, y: 28}
+        - {x: -21, y: 28}
+        - {x: -74, y: 17}
+        - {x: -74, y: -8}
+        - {x: -72, y: -11}
+        - {x: -63, y: -16}
+        - {x: -35, y: -37}
+        - {x: 33, y: -37}
+        - {x: 82, y: -6}
+        - {x: 82, y: 16}
+        - {x: 81, y: 21}
     - name: tatu_sprite_3
       rect:
         serializedVersion: 2
@@ -137,16 +137,16 @@ TextureImporter:
         width: 172
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -35, y: 31}
-        - {x: -72, y: -5}
-        - {x: -72, y: -29}
-        - {x: -46, y: -38}
-        - {x: 63, y: -38}
-        - {x: 63, y: 9}
-        - {x: 46, y: 31}
+      - - {x: -29, y: 41}
+        - {x: -73, y: 26}
+        - {x: -78, y: 10}
+        - {x: -78, y: -28}
+        - {x: 57, y: -28}
+        - {x: 57, y: 22}
+        - {x: 32, y: 41}
     - name: tatu_sprite_4
       rect:
         serializedVersion: 2
@@ -155,18 +155,23 @@ TextureImporter:
         width: 172
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -48, y: 29}
-        - {x: -66, y: 9}
-        - {x: -66, y: -18}
-        - {x: -52, y: -23}
-        - {x: -8, y: -40}
-        - {x: 30, y: -40}
-        - {x: 37, y: -22}
-        - {x: 37, y: 24}
-        - {x: 16, y: 29}
+      - - {x: -35, y: 29}
+        - {x: -52, y: 11}
+        - {x: -52, y: -20}
+        - {x: -41, y: -40}
+        - {x: 49, y: -40}
+        - {x: 49, y: 25}
+        - {x: 30, y: 29}
+      - - {x: -60, y: 0}
+        - {x: -60, y: -15}
+        - {x: -57, y: -16}
+        - {x: -54, y: -15}
+        - {x: -54, y: 2}
+        - {x: -56, y: 4}
+        - {x: -59, y: 3}
     - name: tatu_sprite_5
       rect:
         serializedVersion: 2
@@ -175,7 +180,7 @@ TextureImporter:
         width: 172
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 75, y: -27}
@@ -184,14 +189,14 @@ TextureImporter:
         - {x: 86, y: -43}
         - {x: 86, y: -23}
         - {x: 80, y: -23}
-      - - {x: -50, y: 33}
-        - {x: -55, y: 21}
-        - {x: -55, y: -23}
-        - {x: -44, y: -28}
-        - {x: -2, y: -28}
-        - {x: 6, y: -14}
-        - {x: 6, y: 28}
-        - {x: 0, y: 33}
+      - - {x: -30, y: 29}
+        - {x: -31, y: 28}
+        - {x: -31, y: -24}
+        - {x: -26, y: -32}
+        - {x: 19, y: -32}
+        - {x: 30, y: -19}
+        - {x: 30, y: 25}
+        - {x: 18, y: 29}
     - name: tatu_sprite_6
       rect:
         serializedVersion: 2
@@ -200,24 +205,18 @@ TextureImporter:
         width: 172
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -36, y: 41}
-        - {x: -78, y: 8}
-        - {x: -86, y: -19}
-        - {x: -86, y: -48}
-        - {x: -37, y: -48}
-        - {x: 11, y: -13}
-        - {x: 20, y: 9}
-        - {x: 20, y: 41}
-      - - {x: 72, y: 26}
-        - {x: 69, y: 24}
-        - {x: 69, y: 8}
-        - {x: 81, y: 0}
-        - {x: 85, y: -2}
-        - {x: 86, y: -2}
-        - {x: 86, y: 26}
+      - - {x: 49, y: 43}
+        - {x: -5, y: 43}
+        - {x: -54, y: -8}
+        - {x: -54, y: -44}
+        - {x: -41, y: -46}
+        - {x: 5, y: -46}
+        - {x: 41, y: -8}
+        - {x: 54, y: 17}
+        - {x: 54, y: 40}
     - name: tatu_sprite_7
       rect:
         serializedVersion: 2
@@ -226,16 +225,18 @@ TextureImporter:
         width: 172
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -86, y: 29}
-        - {x: -86, y: -11}
-        - {x: -58, y: -34}
-        - {x: 32, y: -34}
-        - {x: 65, y: -16}
-        - {x: 65, y: 13}
-        - {x: 56, y: 29}
+      - - {x: 57, y: 27}
+        - {x: 31, y: 29}
+        - {x: -86, y: 29}
+        - {x: -86, y: 6}
+        - {x: -40, y: -34}
+        - {x: 40, y: -34}
+        - {x: 79, y: -14}
+        - {x: 81, y: -7}
+        - {x: 81, y: 13}
     outline: []
   spritePackingTag: 
   userData: 
