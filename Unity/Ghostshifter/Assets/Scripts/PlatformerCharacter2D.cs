@@ -83,7 +83,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed * m_BoostPower + m_BaseSpeed * m_BoostPower, m_Rigidbody2D.velocity.y);
 
         // If the player should jump...
-        if (m_Grounded && jump)
+        if (m_Grounded && jump && m_Rigidbody2D.velocity[1] <= 0)
         {
             // Add a vertical force to the player.
             m_Grounded = false;
