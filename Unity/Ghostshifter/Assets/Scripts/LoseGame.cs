@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEditor.Animations;
 
 public class LoseGame : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class LoseGame : MonoBehaviour
         gameLost = gameLost || really;
         if (really)
         {
-            Debug.Log("Game Lost set");
             deathTime = Time.time;
         }
     }
@@ -33,7 +33,12 @@ public class LoseGame : MonoBehaviour
         {
             loseUI.SetActive(true);
 
-            GetComponent<Shapeshifter>().die();
+            var animators = GetComponentsInChildren<Animator>();
+            
+            foreach (var animator in animators)
+            {
+                animator.SetBool("Dead", true);
+            }
             GetComponent<Platformer2DUserControl>().enabled = false;
             GetComponent<PlatformerCharacter2D>().enabled = false;
             Destroy(GetComponent<Rigidbody2D>());
