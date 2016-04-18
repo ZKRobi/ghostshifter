@@ -21,7 +21,6 @@ public class Shapeshifter : MonoBehaviour
         body[2] = transform.Find("Snake");
         m_Particles = GetComponentInChildren<ParticleSystem>();
 
-        faceCheck = GameObject.Find("FaceCheck").transform;
     }
 
     public bool CanPass()
@@ -36,22 +35,20 @@ public class Shapeshifter : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonDown("Form1") && form != 0)
         {
             newform = 0;
-            formControl.MaxSpeed = 4;
+            formControl.MaxSpeed = formControl.m_BaseSpeed;
             formControl.JumpForce = 850;
-            if (form == 1) { faceCheck.Translate(0f, 0.35f, 0f); }
         }
         else if (CrossPlatformInputManager.GetButtonDown("Form2") && form != 1)
         {
             newform = 1;
-            formControl.MaxSpeed = 12;
-            formControl.JumpForce = 350;
-            if (form != 1) { faceCheck.Translate(0f, -0.35f, 0f); }
+            formControl.MaxSpeed = formControl.m_BaseSpeed * 2;
+            formControl.JumpForce = 400;
         }
         else if (CrossPlatformInputManager.GetButtonDown("Form3") && form != 2)
         {
             newform = 2;
-            formControl.MaxSpeed = 5;
-            if (form == 1) { faceCheck.Translate(0f, 0.35f, 0f); }
+            formControl.MaxSpeed = formControl.m_BaseSpeed;
+            formControl.JumpForce = 0;
         }
         if (newform == form)
         {

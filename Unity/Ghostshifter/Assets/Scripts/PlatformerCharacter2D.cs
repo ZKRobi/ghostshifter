@@ -5,8 +5,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlatformerCharacter2D : MonoBehaviour
 {
 
-    public float m_MaxSpeed = 12f;                    // The fastest the player can travel in the x axis.
-    public float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
+    public float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
+    public float m_JumpForce = 850f;                  // Amount of force added when the player jumps.
 
     public float m_BaseSpeed = 10f;                    // Character is running this quickly alll the time
 
@@ -115,15 +115,4 @@ public class PlatformerCharacter2D : MonoBehaviour
             m_JumpForce = value;
         }
     }
-
-    /*private void Flip()
-    {
-        // Switch the way the player is labelled as facing.
-        m_FacingRight = !m_FacingRight;
-
-        // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }*/
 }
