@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     private int score = 0;
     private Text scoreArea;
 
     // Use this for initialization
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         scoreArea = GetComponent<Text>();
     }
 
